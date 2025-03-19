@@ -1,0 +1,32 @@
+{
+  "android": {
+    "abiFilters": [
+      "arm64-v8a"
+    ],
+    "appName": "U Pay",
+    "applicationAttrs": [],
+    "manifestPlaceholders": {
+      "dcloud_appkey": "a465b2cc7a8a73fb3213e52bd502c46d"
+    },
+    "mavenRepos": [],
+    "minSdkVersion": 21,
+    "packageName": "uni.UNIF08725D",
+    "signingConfig": {
+      "keyAlias": "__uni__f08725d",
+      "keyPassword": "UUQvcSNZ",
+      "storeFile": "static/e7bedb6047d9819c377d6a2f44f2c175.keystore",
+      "storePassword": "UUQvcSNZ"
+    },
+    "targetSdkVersion": 31
+  },
+  "ios": {
+    "plist": {},
+    "signingConfig": {
+      "development": {},
+      "release": {}
+    }
+  },
+  "uniSdk": {
+    "android": "/Users/gv/Downloads/Android-SDK@4.56.82373_20250313/SDK"
+  }
+}

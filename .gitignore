@@ -1,0 +1,5 @@
+unpackage/*
+uni_modules/tp-wallet
+uni_modules/metamask-wallet
+android/*
+node_modules/*
