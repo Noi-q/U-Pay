@@ -89,10 +89,6 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-// #ifdef APP
-import {TPAuthorize,TPTransfer} from '@/uni_modules/tp-wallet'
-import { initSdk } from '@/uni_modules/metamask-wallet'
-// #endif
 
 // 状态栏高度
 const statusBarHeight = ref(0)
@@ -209,18 +205,7 @@ const goToTransfer = () => {
 }
 
 const goToTransactionHistory = () => {
-	// uni.navigateTo({
-	// 	url: '/pages/transaction/history'
-	// })
-	TPAuthorize({
-		success: (res) => {
-			console.log(res)
-			TPTransfer()
-		},
-		fail: (res) => {
-			console.log(res)
-		}
-	})
+
 }
 
 const viewTransaction = (item) => {
