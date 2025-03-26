@@ -133,24 +133,33 @@
       </view>
     </view>
 
+    <view class="settings">
+      <view class="setting-item" @tap="toggleTheme">
+        <text>主题设置</text>
+        <text>{{ appStore.theme === 'light' ? '浅色' : '深色' }}</text>
+      </view>
+      
+      <view class="setting-item" @tap="handleLogout">
+        <text>退出登录</text>
+      </view>
+    </view>
 
   </view>
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import { useUserStore, useAppStore } from '@/stores'
+import { router } from '@/utils'
+
+const userStore = useUserStore()
+const appStore = useAppStore()
 
 // 状态栏高度
 const statusBarHeight = ref(0)
 
-// 用户信息
-const userInfo = ref({
-  avatar: '',
-  nickname: '张三',
-  level: 2,
-  userId: '888888',
-  authStatus: 'pending' // pending, verified, unverified
-})
+// 获取用户信息
+const userInfo = userStore.userInfo
 
 // 资产显示控制
 const showAsset = ref(true)
@@ -202,7 +211,16 @@ const scanQRCode = () => {
   })
 }
 
+// 切换主题
+const toggleTheme = () => {
+  appStore.setTheme(appStore.theme === 'light' ? 'dark' : 'light')
+}
 
+// 退出登录
+const handleLogout = () => {
+  userStore.logout()
+  router.reLaunch('/pages/login/index')
+}
 
 // 页面跳转方法
 const goToSetting = () => uni.navigateTo({ url: '/pages/setting/index' })
@@ -432,7 +450,29 @@ const goToAbout = () => uni.navigateTo({ url: '/pages/about/index' })
     }
   }
   
-
+  .settings {
+    margin: 30rpx;
+    background: #fff;
+    border-radius: 20rpx;
+    padding: 30rpx;
+    
+    .setting-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20rpx;
+      border-bottom: 1rpx solid #f5f5f5;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      text {
+        font-size: 28rpx;
+        color: #333;
+      }
+    }
+  }
 }
 
 // 适配 H5

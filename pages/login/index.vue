@@ -60,8 +60,11 @@
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
+import { useUserStore } from '@/stores'
 import { userApi } from '@/api'
+import { toast, router } from '@/utils'
 
+const userStore = useUserStore()
 const showPassword = ref(false)
 const formData = reactive({
   username: '',
@@ -75,21 +78,19 @@ const togglePassword = () => {
 const handleLogin = async () => {
   try {
     // 调用登录接口
-    const { token } = await userApi.login({
+    const { token, userInfo } = await userApi.login({
       username: formData.username,
       password: formData.password
     })
     
-    // 保存token
-    uni.setStorageSync('token', token)
+    // 存储用户信息
+    userStore.setToken(token)
+    userStore.setUserInfo(userInfo)
     
-    // 获取用户信息
-    const userInfo = await userApi.getUserInfo()
+    toast.success('登录成功')
     
-    // 登录成功，跳转到首页
-    uni.reLaunch({
-      url: '/pages/index/index'
-    })
+    // 跳转到首页
+    router.reLaunch('/pages/index/index')
   } catch (error) {
     console.error('登录失败：', error)
   }

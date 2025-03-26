@@ -1,4 +1,6 @@
-import App from './App'
+import { createSSRApp } from 'vue'
+import { createPinia } from 'pinia'
+import App from './App.vue'
 
 // #ifndef VUE3
 import Vue from 'vue'
@@ -12,11 +14,15 @@ app.$mount()
 // #endif
 
 // #ifdef VUE3
-import { createSSRApp } from 'vue'
 export function createApp() {
   const app = createSSRApp(App)
+  const pinia = createPinia()
+  
+  app.use(pinia)
+  
   return {
-    app
+    app,
+    pinia
   }
 }
 // #endif
