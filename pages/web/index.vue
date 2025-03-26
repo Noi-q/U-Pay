@@ -11,7 +11,7 @@
           </div>
           <nav class="nav-menu">
             <a href="#home" class="nav-item active">首页</a>
-            <a href="#helpcenter" class="nav-item">帮助中心</a>
+            <a href="#pages/web/help/index" class="nav-item">帮助中心</a>
           </nav>
         </div>
 

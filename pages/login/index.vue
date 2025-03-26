@@ -58,8 +58,9 @@
   </view>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, reactive } from 'vue'
+import { userApi } from '@/api'
 
 const showPassword = ref(false)
 const formData = reactive({
@@ -71,20 +72,27 @@ const togglePassword = () => {
   showPassword.value = !showPassword.value
 }
 
-const handleLogin = () => {
-  if (!formData.username || !formData.password) {
-    uni.showToast({
-      title: '请输入账号和密码',
-      icon: 'none'
+const handleLogin = async () => {
+  try {
+    // 调用登录接口
+    const { token } = await userApi.login({
+      username: formData.username,
+      password: formData.password
     })
-    return
+    
+    // 保存token
+    uni.setStorageSync('token', token)
+    
+    // 获取用户信息
+    const userInfo = await userApi.getUserInfo()
+    
+    // 登录成功，跳转到首页
+    uni.reLaunch({
+      url: '/pages/index/index'
+    })
+  } catch (error) {
+    console.error('登录失败：', error)
   }
-  
-  // TODO: 实现登录逻辑
-  console.log('登录信息：', formData)
-	uni.switchTab({
-		url: "/pages/index/index"
-	})
 }
 
 const handleGoogleLogin = () => {
