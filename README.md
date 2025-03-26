@@ -23,4 +23,4 @@
 - 如果本模版对您有帮助，别忘记赞助作者一杯咖啡~
 - 有您的支持，才是我们的动力。
 
-![](README_files/1.png)
+![](https://github.com/Noi-q/U-Pay/blob/master/README_files/1.png?raw=true)
