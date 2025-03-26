@@ -1,8 +1,8 @@
 ## 使用教程
 
-- 将`manifest_template.json`改为`manifest.json`
+- 1.将`manifest_template.json`改为`manifest.json`
 
-- `npm install`
+- 2.`npm install`
 
 - 由于内部有使用TokenPocket和Metamask-wallet插件，如有需要请跳转<a href="https://ext.dcloud.net.cn/plugin?id=22681">TokenPocket SDK</a>
 - Metamask暂不支持App端
@@ -10,6 +10,8 @@
 
 - 如已购买上述插件，需要打包自定义基座，否则使用不了！
 - 如不需要购买上述插件，请前往`/pages/other-wallet/index.vue`移除代码
+
+## 本模版不会采用大型组件库来迭代，保证可在多个HBX版本运行和使用！
 
 
 ## 模版声明

@@ -214,7 +214,6 @@
 				}
 			}
 		},
-		// #ifndef APP
 		{
 			"path": "pages/web/index",
 			"style": {
@@ -263,7 +262,6 @@
 				}
 			}
 		}
-		// #endif
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
