@@ -213,6 +213,42 @@
 					"bounce": "none"
 				}
 			}
+		},
+		{
+			"path": "pages/web/index",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+					"bounce": "none"
+				},
+				"h5": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/web/login",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+					"bounce": "none"
+				},
+				"h5": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/web/register",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+					"bounce": "none"
+				},
+				"h5": {
+					"titleNView": false
+				}
+			}
 		}
 	],
 	"globalStyle": {
@@ -244,6 +280,15 @@
 				"text": "我的",
 				"iconPath": "/static/tabbar/mine-un.png",
 				"selectedIconPath": "/static/tabbar/mine-on.png"
+			}
+		]
+	},
+	"condition": {
+		"current": 0,
+		"list": [
+			{
+				"name": "官网",
+				"path": "pages/web/index"
 			}
 		]
 	}

@@ -5,3 +5,4 @@ android
 node_modules/*
 static/e7bedb6047d9819c377d6a2f44f2c175.keystore
 manifest.json
+.hbuilderx
